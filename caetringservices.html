@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishabh Kumar's Delights - Catering Services</title>
+    <style>
+        /* CSS Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #d35400;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        nav {
+            background-color: #e67e22;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #d35400;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1555244162-803834f70033');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e67e22;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #d35400;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #d35400;
+            font-size: 2.2rem;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            margin-bottom: 1rem;
+            color: #d35400;
+        }
+
+        .service-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #e67e22;
+        }
+
+        .menu {
+            background-color: #fff8f0;
+            padding: 3rem 0;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-item {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item h3 {
+            color: #d35400;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #e67e22;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">R.K.'s Delights</div>
+        <div class="tagline">Exquisite Catering for Your Special Occasions</div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h2>Making Your Events Memorable</h2>
+        <p>From intimate gatherings to grand celebrations, we provide exceptional catering services with delicious food and impeccable service.</p>
+        <a href="#contact" class="btn">Book Now</a>
+    </section>
+
+    <div class="container">
+        <section id="services">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf" alt="Birthday Party">
+                    </div>
+                    <div class="service-content">
+                        <h3>Birthday Parties</h3>
+                        <p>Make your special day unforgettable with our customized birthday party catering services.</p>
+                        <div class="price">Starting at ₹5,000</div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed" alt="Anniversary">
+                    </div>
+                    <div class="service-content">
+                        <h3>Anniversaries</h3>
+                        <p>Celebrate your love story with our elegant anniversary catering solutions.</p>
+                        <div class="price">Starting at ₹7,000</div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d" alt="Corporate Events">
+                    </div>
+                    <div class="service-content">
+                        <h3>Corporate Events</h3>
+                        <p>Impress your clients and colleagues with our professional corporate catering.</p>
+                        <div class="price">Starting at ₹10,000</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu" id="menu">
+            <h2 class="section-title">Our Popular Thalis</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h3>Premium Thali</h3>
+                    <p>A royal experience with 12 different dishes including special desserts and appetizers.</p>
+                    <div class="price">₹500 per plate</div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>Maharaja Thali</h3>
+                    <p>The ultimate dining experience with 16 exquisite dishes fit for royalty.</p>
+                    <div class="price">₹700 per plate</div>
+                </div>
+
+                <div class="menu-item">
+                    <h3>Simple Thali</h3>
+                    <p>A wholesome meal with 8 delicious items perfect for any occasion.</p>
+                    <div class="price">₹400 per plate</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2 class="section-title">Food Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Delicious Food">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641" alt="Thali Presentation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Special Dish">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187" alt="Food Presentation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543" alt="Breakfast Spread">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929" alt="Healthy Food">
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-info">
+                <p><strong>Owner:</strong> Rishabh Kumar</p>
+                <p><strong>Phone:</strong> 4567631268</p>
+                <p><strong>Email:</strong> rishabhdelights@example.com</p>
+                <p><strong>Address:</strong> 123 Food Street, Catering Nagar, Delhi - 110001</p>
+            </div>
+            <a href="#" class="btn" id="bookBtn">Book Your Event</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Rishabh Kumar's Delights</h3>
+            <p>Serving happiness on your plate since 2010</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2023 Rishabh Kumar's Delights. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Basic JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Booking button functionality
+            const bookBtn = document.getElementById('bookBtn');
+            bookBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const phoneNumber = '4567631268';
+                const message = 'Hello, I would like to book your catering services for an event.';
+                
+                
+                
+                
+                // Alternatively, you could show an alert
+                // alert('Please call us at 4567631268 to book your event. Thank you!');
+            });
+
+            // Simple animation for service cards when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
